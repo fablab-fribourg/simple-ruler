@@ -1,0 +1,88 @@
+!----------------------------------------------------------------------------
+! Copyright 2014 Jacques Supcik, EIA-FR
+!
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!----------------------------------------------------------------------------
+!
+! Simple Ruler / Jacques Supcik / 2014-07-20
+!
+!----------------------------------------------------------------------------
+
+step = 0.5
+k = 0.8
+size 3.5 0+step*17
+
+!----------------------------------------------------------------------------
+! Color definition for Trotec 300 laser cutter
+!----------------------------------------------------------------------------
+
+Black$   = "rgb255(000,000,000)"
+Red$     = "rgb255(255,000,000)"
+Blue$    = "rgb255(000,000,255)"
+Desert$  = "rgb255(051,102,153)"
+Cyan$    = "rgb255(000,255,255)"
+Green$   = "rgb255(000,255,000)"
+Grass$   = "rgb255(000,153,051)"
+Forest$  = "rgb255(000,102,051)"
+Olive$   = "rgb255(153,153,051)"
+Brown$   = "rgb255(153,102,051)"
+Walnut$  = "rgb255(102,051,000)"
+Plum$    = "rgb255(102,000,102)"
+Purple$  = "rgb255(153,000,204)"
+Magen$   = "rgb255(255,000,255)"
+Orang$   = "rgb255(255,102,000)"
+Yellow$  = "rgb255(255,255,000)"
+
+CuttingColor$    = Black$
+EngravingColor$  = Red$
+
+!----------------------------------------------------------------------------
+! Defaults
+!----------------------------------------------------------------------------
+set lwidth 0.01
+set join round
+set cap round
+set font texcmss
+
+!----------------------------------------------------------------------------
+! Subroutines
+!----------------------------------------------------------------------------
+sub cut color$ h t$
+    set color color$
+    amove 0 step+h*step 
+    rline 2 0
+ end sub
+
+!----------------------------------------------------------------------------
+! Main
+!----------------------------------------------------------------------------
+sub main
+    cut Black$   0 "???/???"
+    cut Red$     1 "???/???"
+    cut Blue$    2 "???/???"
+    cut Desert$  3 "???/???"
+    cut Cyan$    4 "???/???"
+    cut Green$   5 "???/???"
+    cut Grass$   6 "???/???"
+    cut Forest$  7 "???/???"
+    cut Olive$   8 "???/???"
+    cut Brown$   9 "???/???"
+    cut Walnut$ 10 "???/???"
+    cut Plum$   11 "???/???"
+    cut Purple$ 12 "???/???"
+    cut Magen$  13 "???/???"
+    cut Orang$  14 "???/???"
+    cut Yellow$ 15 "???/???"
+end sub
+
+main
